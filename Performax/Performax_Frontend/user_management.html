@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performax User Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-page-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="performax_logo.png" alt="PSU Logo">
+                <h3>Psu, Urdaneta City</h3>
+            </div>
+            <nav>
+                <a href="admin_dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="user_management.html" class="active"><i class="fas fa-users-cog"></i> User Management</a>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
+                <div class="nav-group-title">Manage Classes</div>
+                <a href="#">App Dev 3B <span class="new-tag">NEW</span></a>
+                <a href="#">App Dev 3A <span class="new-tag">NEW</span></a>
+            </nav>
+        </div>
+
+        <div style="width: 100%;">
+            <div class="topbar">
+                <i class="fas fa-bell notification-bell"></i>
+                <button onclick="logout()" class="logout-btn">Log out</button>
+            </div>
+            <div class="main-content" style="padding: 30px;">
+                <div class="content-header">
+                    <h1>User Management</h1>
+                    <button class="add-user-btn" onclick="openUserModal()">
+                        <i class="fas fa-plus"></i> Add New User
+                    </button>
+                </div>
+                <p style="margin-bottom: 20px; color: #555;">Create, view, update, and delete user accounts.</p>
+                
+                <div class="user-table-container">
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-modal" class="modal" onclick="closeUserModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeUserModal()">&times;</span>
+            <h2 id="modal-title">Add New User</h2>
+            <form id="user-form" onsubmit="handleUserFormSubmit(event)">
+                <input type="hidden" id="user-id">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" required>
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password (leave blank to keep unchanged):</label>
+                <input type="password" id="password">
+                <label for="role">Role:</label>
+                <select id="role">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="submit" id="modal-submit-btn">Create User</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js?v=3"></script>
+</body>
+</html>

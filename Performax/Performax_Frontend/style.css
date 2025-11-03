@@ -1,0 +1,133 @@
+/* General Reset & Body */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f6f7fb;
+}
+
+/* --- Login/Register Page (index.html) --- */
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+}
+.login-container h2 { text-align: center; color: #1a1b2e; margin-bottom: 20px; }
+.login-container input, .login-container button {
+    display: block; width: 100%; margin-top: 10px; padding: 12px;
+    border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em;
+}
+.login-container button:not(.switch-btn) {
+    background: #ff6600; color: white; border: none; cursor: pointer;
+    font-weight: bold; margin-top: 20px; transition: background 0.3s;
+}
+.login-container button:not(.switch-btn):hover { background: #e65c00; }
+.switch-btn {
+    background: none; color: #007bff; border: none; cursor: pointer;
+    margin-top: 15px; padding: 0; font-weight: 500;
+}
+.hidden { display: none; }
+#message { margin-top: 15px; text-align: center; font-weight: bold; }
+
+/* --- Shared Admin/Dashboard Layout --- */
+.admin-page-container, .student-page-container { display: flex; min-height: 100vh; }
+.sidebar {
+    width: 250px; background-color: #0f1022; color: white;
+    padding: 20px 0; display: flex; flex-direction: column;
+    flex-shrink: 0; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar-header { text-align: center; margin-bottom: 30px; padding: 0 15px; }
+.sidebar-header img { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 10px; background: white; }
+.sidebar-header h3, .sidebar-header p { margin: 0; }
+.sidebar nav { width: 100%; }
+.sidebar nav a {
+    display: flex; align-items: center; padding: 14px 25px; color: #ccc;
+    text-decoration: none; transition: all 0.2s; font-size: 0.95em; gap: 15px;
+}
+.sidebar nav a.active, .sidebar nav a:hover { background-color: #007bff; color: white; }
+.sidebar .nav-group-title {
+    color: #ccc; font-weight: bold; text-transform: uppercase; font-size: 0.9em;
+    margin-top: 20px; margin-bottom: 10px; padding: 0 25px;
+}
+.new-tag {
+    background-color: #28a745; color: white; font-size: 0.7em;
+    padding: 2px 6px; border-radius: 4px; margin-left: auto; font-weight: bold;
+}
+.topbar {
+    height: 60px; display: flex; justify-content: flex-end; align-items: center;
+    padding: 0 30px; gap: 20px; background: #ffc928;
+}
+.notification-bell { font-size: 1.3em; color: #0f1022; cursor: pointer; }
+.logout-btn {
+    background: #0f1022; color: white; padding: 8px 18px; border: none;
+    border-radius: 5px; cursor: pointer; font-weight: 500; font-family: inherit;
+}
+
+/* --- User Management Page (user_management.html) --- */
+.content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.add-user-btn {
+    background: #007bff; color: white; border: none; padding: 10px 15px;
+    border-radius: 5px; cursor: pointer; font-weight: 500; font-size: 0.9em;
+}
+.add-user-btn i { margin-right: 5px; }
+.user-table-container { background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden;}
+.user-table { width: 100%; border-collapse: collapse; }
+.user-table th, .user-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+.user-table th { background-color: #f9f9f9; font-weight: 600; }
+.role-tag { padding: 4px 8px; border-radius: 12px; font-size: 0.8em; color: white; text-transform: capitalize; }
+.role-admin { background-color: #dc3545; }
+.role-faculty { background-color: #ffc107; color: #333; }
+.role-student { background-color: #28a745; }
+.user-table .actions button {
+    background: none; border: none; cursor: pointer; padding: 5px; font-size: 1.1em;
+}
+.edit-btn { color: #007bff; }
+.delete-btn { color: #dc3545; }
+
+/* --- Modal Styles --- */
+.modal {
+    display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+    width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);
+    align-items: center; justify-content: center;
+}
+.modal-content {
+    background-color: #fefefe; padding: 25px;
+    border: 1px solid #888; width: 90%; max-width: 500px;
+    border-radius: 8px; position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+#user-form label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 500; }
+#user-form input, #user-form select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+#user-form button {
+    width: 100%; padding: 12px; margin-top: 20px; background: #007bff;
+    color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em;
+}
+
+/* --- Reports Page (reports.html) --- */
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+/* --- Dashboard Specific --- */
+.risk-low { color: green; font-weight: bold; }
+.risk-medium { color: orange; font-weight: bold; }
+.risk-high { color: red; font-weight: bold; }
+.track-recommendation { background:#f4f4f4; padding:15px; border-radius:5px; margin-top: 10px; }
+.track-recommendation strong { font-size: 1.1em; color: #007bff; }
+.track-recommendation span { float: right; font-weight: bold; }
+.track-recommendation p { font-size: 0.9em; color: #555; margin-top: 5px; }
+.chat-user { text-align: right; color:#1a1b2e; margin: 5px 0; }
+.chat-bot { background: #e6f7ff; padding: 8px; border-radius: 5px; margin: 5px 0;}
